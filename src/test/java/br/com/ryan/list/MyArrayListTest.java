@@ -1,4 +1,4 @@
-package br.com.ryan.vetor;
+package br.com.ryan.list;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -12,12 +12,12 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
-class MyArrayTest {
-	MyArray array;
+class MyArrayListTest {
+	MyArrayList array;
 	
 	@BeforeEach
 	void instance() {
-		 array = new MyArray();
+		 array = new MyArrayList();
 	}
 	
 	@Test

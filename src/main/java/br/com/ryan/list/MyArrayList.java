@@ -1,18 +1,16 @@
-package br.com.ryan.vetor;
-
-import br.com.ryan.ListInterface;
+package br.com.ryan.list;
 
 /** 
  * @author Ryan Castro Ferreira
  */
-public class MyArray implements ListInterface {
+public class MyArrayList implements MyList {
 	
 	private Object[] elements;
 	private int size;
 	
 	private static final int SIZE_INITIALIZE = 10;
 	
-	public MyArray() {
+	public MyArrayList() {
 		super();
 		
 		size = 0;

@@ -1,6 +1,6 @@
-package br.com.ryan;
+package br.com.ryan.list;
 
-public interface ListInterface {
+public interface MyList {
 	
 	public void add(Object value);
 	public void add(int size, Object value);
