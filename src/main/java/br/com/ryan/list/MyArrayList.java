@@ -59,7 +59,11 @@ public class MyArrayList implements MyList {
 	}
 
 	@Override
-	public Object get(int index) {
+	public Object get(int index) throws IndexOutOfBoundsException {
+		if (index < 0) {
+			throw new IndexOutOfBoundsException("Index negative!");
+		}
+		
 		return elements[index];
 	}
 
