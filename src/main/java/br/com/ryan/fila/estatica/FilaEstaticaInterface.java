@@ -1,6 +1,6 @@
-package br.com.ryan.fila;
+package br.com.ryan.fila.estatica;
 
-public interface FilaInterface {
+public interface FilaEstaticaInterface {
 	
 	public void add(Object value);
 	public void add(int size, Object value);

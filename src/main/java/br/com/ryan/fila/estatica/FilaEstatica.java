@@ -1,11 +1,9 @@
 package br.com.ryan.fila.estatica;
 
-import br.com.ryan.fila.FilaInterface;
-
 /** 
  * @author Ryan Castro Ferreira
  */
-public class FilaEstatica implements FilaInterface {
+public class FilaEstatica implements FilaEstaticaInterface {
 	
 	private Object[] elements;
 	private int size;
