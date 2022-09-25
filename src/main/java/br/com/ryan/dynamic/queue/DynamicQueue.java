@@ -21,7 +21,7 @@ public class DynamicQueue<E> implements DynamicQueueInterface<E> {
 		if (start == null) {
 			end = element;
 			start = element;
-			element.data = null;
+			element.next = null;
 		} else {
 			if (start == end) {
 				end = element;
@@ -29,7 +29,7 @@ public class DynamicQueue<E> implements DynamicQueueInterface<E> {
 				end.next = null;
 			} else {
 				end.next = element;
-				element.data = null;
+				element.next = null;
 				end = element;
 			}
 		}
