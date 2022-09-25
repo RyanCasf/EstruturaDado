@@ -1,4 +1,4 @@
-package br.com.ryan.list;
+package br.com.ryan.fila.estatica;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -12,119 +12,119 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
-class MyArrayListTest {
-	private MyArrayList array;
+class FilaEstaticaTeste {
+	private FilaEstatica filaEstatica;
 	
 	@BeforeEach
 	void instance() {
-		 array = new MyArrayList();
+		 filaEstatica = new FilaEstatica();
 	}
 	
 	@Test
 	@DisplayName("New instance to array")
 	void inicialize() {
-		assertEquals(0, array.size());
+		assertEquals(0, filaEstatica.size());
 		
 		for (byte i=0; i<10; i++) {
-			assertEquals(null, array.get(i));
+			assertEquals(null, filaEstatica.get(i));
 		}
 		
-		assertNull(array.print());
+		assertNull(filaEstatica.print());
 	}
 	
 	@Test
 	void add() {
-		array.add("0");
-		assertEquals(1, array.size());
-		assertEquals("0", array.get(0));
+		filaEstatica.add("0");
+		assertEquals(1, filaEstatica.size());
+		assertEquals("0", filaEstatica.get(0));
 		
-		assertEquals("[0]", array.print());
+		assertEquals("[0]", filaEstatica.print());
 	}
 	
 	@Test
 	void addMax() {
 		for (byte i=1; i<11; i++) {
-			array.add(Integer.toString(i));
+			filaEstatica.add(Integer.toString(i));
 		}
 		
-		assertThrows(ArrayIndexOutOfBoundsException.class, () -> array.add("11"));
-		assertEquals("[1,2,3,4,5,6,7,8,9,10]", array.print());
+		assertThrows(ArrayIndexOutOfBoundsException.class, () -> filaEstatica.add("11"));
+		assertEquals("[1,2,3,4,5,6,7,8,9,10]", filaEstatica.print());
 	}
 	
 	@Test
 	void getIndexNegative() {
-		assertThrows(IndexOutOfBoundsException.class, () -> array.get(-1));
+		assertThrows(IndexOutOfBoundsException.class, () -> filaEstatica.get(-1));
 	}
 	
 	@Test
 	void getIndexZero() {
-		assertNull(array.get(0));
+		assertNull(filaEstatica.get(0));
 	}
 	
 	@Test
 	void getIndexPositive() {
-		assertNull(array.get(1));
+		assertNull(filaEstatica.get(1));
 	}
 	
 	@Test
 	void containsIndexNegative() {
-		assertFalse(array.contains(-1));
+		assertFalse(filaEstatica.contains(-1));
 	}
 	
 	@Test
 	void containsIndexZero() {
-		assertFalse(array.contains(0));
+		assertFalse(filaEstatica.contains(0));
 	}
 	
 	@Test
 	void containsIndexPositive() {
-		assertFalse(array.contains(1));
+		assertFalse(filaEstatica.contains(1));
 	}
 	
 	@Test
 	void containsWithNull() {
-		assertFalse(array.contains(null));
+		assertFalse(filaEstatica.contains(null));
 	}
 	
 	@Test
 	void containsWithNewInstance() {
-		assertFalse(array.contains(new Object()));
+		assertFalse(filaEstatica.contains(new Object()));
 	}
 	
 	@Test
 	void containsWithInstance() {
 		Object param = new Object();
-		assertFalse(array.contains(param));
+		assertFalse(filaEstatica.contains(param));
 	}
 	
 	@Test
 	void removeIndexNegative() {
-		assertFalse(array.remove(-1));
+		assertFalse(filaEstatica.remove(-1));
 	}
 	
 	@Test
 	void removeIndexZero() {
-		assertFalse(array.remove(0));
+		assertFalse(filaEstatica.remove(0));
 	}
 	
 	@Test
 	void removeIndexPositive() {
-		assertFalse(array.remove(1));
+		assertFalse(filaEstatica.remove(1));
 	}
 	
 	@Test
 	void removeObjWithNull() {
-		assertFalse(array.remove(null));
+		assertFalse(filaEstatica.remove(null));
 	}
 	
 	@Test
 	void removeObjWithNewInstance() {
-		assertFalse(array.remove(new Object()));
+		assertFalse(filaEstatica.remove(new Object()));
 	}
 	
 	@Test
 	void removeObjWithInstance() {
 		Object param = new Object();
-		assertFalse(array.remove(param));
+		assertFalse(filaEstatica.remove(param));
 	}
 }

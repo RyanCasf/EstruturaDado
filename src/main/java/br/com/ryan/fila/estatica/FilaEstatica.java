@@ -1,16 +1,18 @@
-package br.com.ryan.list;
+package br.com.ryan.fila.estatica;
+
+import br.com.ryan.fila.FilaInterface;
 
 /** 
  * @author Ryan Castro Ferreira
  */
-public class MyArrayList implements MyList {
+public class FilaEstatica implements FilaInterface {
 	
 	private Object[] elements;
 	private int size;
 	
 	private static final int SIZE_INITIALIZE = 10;
 	
-	public MyArrayList() {
+	public FilaEstatica() {
 		super();
 		
 		size = 0;
