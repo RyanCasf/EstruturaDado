@@ -11,122 +11,137 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
-import br.com.ryan.fixed.queue.FixedQueue;
-
 @TestInstance(Lifecycle.PER_CLASS)
 class FixedQueueTest {
-	private FixedQueue filaEstatica;
+	private FixedQueue fixedQueue;
 	
 	@BeforeEach
 	void instance() {
-		 filaEstatica = new FixedQueue();
+		 fixedQueue = new FixedQueue();
 	}
 	
 	@Test
 	@DisplayName("New instance to array")
 	void inicialize() {
-		assertEquals(0, filaEstatica.size());
+		assertEquals(0, fixedQueue.size());
 		
 		for (byte i=0; i<10; i++) {
-			assertEquals(null, filaEstatica.get(i));
+			assertEquals(null, fixedQueue.get(i));
 		}
 		
-		assertNull(filaEstatica.print());
+		assertNull(fixedQueue.print());
 	}
 	
 	@Test
+	@DisplayName("Add one value to array")
 	void add() {
-		filaEstatica.add("0");
-		assertEquals(1, filaEstatica.size());
-		assertEquals("0", filaEstatica.get(0));
+		fixedQueue.add("0");
+		assertEquals(1, fixedQueue.size());
+		assertEquals("0", fixedQueue.get(0));
 		
-		assertEquals("[0]", filaEstatica.print());
+		assertEquals("[0]", fixedQueue.print());
 	}
 	
 	@Test
+	@DisplayName("Add max (10) values to array, duplicate vector")
 	void addMax() {
 		for (byte i=1; i<11; i++) {
-			filaEstatica.add(Integer.toString(i));
+			fixedQueue.add(Integer.toString(i));
 		}
 		
-		assertThrows(ArrayIndexOutOfBoundsException.class, () -> filaEstatica.add("11"));
-		assertEquals("[1,2,3,4,5,6,7,8,9,10]", filaEstatica.print());
+		assertThrows(ArrayIndexOutOfBoundsException.class, () -> fixedQueue.add("11"));
+		assertEquals("[1,2,3,4,5,6,7,8,9,10]", fixedQueue.print());
 	}
 	
 	@Test
+	@DisplayName("Get element in get index negative")
 	void getIndexNegative() {
-		assertThrows(IndexOutOfBoundsException.class, () -> filaEstatica.get(-1));
+		assertThrows(IndexOutOfBoundsException.class, () -> fixedQueue.get(-1));
 	}
 	
 	@Test
+	@DisplayName("Get element in get index zero")
 	void getIndexZero() {
-		assertNull(filaEstatica.get(0));
+		assertNull(fixedQueue.get(0));
 	}
 	
 	@Test
+	@DisplayName("Get element in get index without elements")
 	void getIndexPositive() {
-		assertNull(filaEstatica.get(1));
+		assertNull(fixedQueue.get(1));
 	}
 	
 	@Test
+	@DisplayName("Contains element index negative")
 	void containsIndexNegative() {
-		assertFalse(filaEstatica.contains(-1));
+		assertFalse(fixedQueue.contains(-1));
 	}
 	
 	@Test
+	@DisplayName("Contains element index zero")
 	void containsIndexZero() {
-		assertFalse(filaEstatica.contains(0));
+		assertFalse(fixedQueue.contains(0));
 	}
 	
 	@Test
+	@DisplayName("Contains element index")
 	void containsIndexPositive() {
-		assertFalse(filaEstatica.contains(1));
+		assertFalse(fixedQueue.contains(1));
 	}
 	
 	@Test
+	@DisplayName("Contains element with value null")
 	void containsWithNull() {
-		assertFalse(filaEstatica.contains(null));
+		assertFalse(fixedQueue.contains(null));
 	}
 	
 	@Test
+	@DisplayName("Contains element in new instance")
 	void containsWithNewInstance() {
-		assertFalse(filaEstatica.contains(new Object()));
+		assertFalse(fixedQueue.contains(new Object()));
 	}
 	
 	@Test
+	@DisplayName("Contains element in new instance param")
 	void containsWithInstance() {
 		Object param = new Object();
-		assertFalse(filaEstatica.contains(param));
+		assertFalse(fixedQueue.contains(param));
 	}
 	
 	@Test
+	@DisplayName("Remove element in index negative")
 	void removeIndexNegative() {
-		assertFalse(filaEstatica.remove(-1));
+		assertFalse(fixedQueue.remove(-1));
 	}
 	
 	@Test
+	@DisplayName("Remove element in index zero")
 	void removeIndexZero() {
-		assertFalse(filaEstatica.remove(0));
+		assertFalse(fixedQueue.remove(0));
 	}
 	
 	@Test
+	@DisplayName("Remove element in index")
 	void removeIndexPositive() {
-		assertFalse(filaEstatica.remove(1));
+		assertFalse(fixedQueue.remove(1));
 	}
 	
 	@Test
+	@DisplayName("Remove element in object null")
 	void removeObjWithNull() {
-		assertFalse(filaEstatica.remove(null));
+		assertFalse(fixedQueue.remove(null));
 	}
 	
 	@Test
+	@DisplayName("Remove element in object new instance")
 	void removeObjWithNewInstance() {
-		assertFalse(filaEstatica.remove(new Object()));
+		assertFalse(fixedQueue.remove(new Object()));
 	}
 	
 	@Test
+	@DisplayName("Remove element in object null param")
 	void removeObjWithInstance() {
 		Object param = new Object();
-		assertFalse(filaEstatica.remove(param));
+		assertFalse(fixedQueue.remove(param));
 	}
 }
