@@ -1,12 +1,12 @@
-package br.com.ryan.fila.dinamica;
+package br.com.ryan.dynamic.queue;
 
 /** 
  * @author Ryan Castro Ferreira
  */
-public class FilaDinamica<E> implements FilaDinamicaInterface<E> {
+public class DynamicQueue<E> implements DynamicQueueInterface<E> {
 	
-	private No<E> previous = null;
-	private No<E> next = null;
+	private Node<E> previous = null;
+	private Node<E> next = null;
 	
 	@Override
 	public boolean isEmpty() {

@@ -1,16 +1,16 @@
-package br.com.ryan.fila.estatica;
+package br.com.ryan.fixed.queue;
 
 /** 
  * @author Ryan Castro Ferreira
  */
-public class FilaEstatica implements FilaEstaticaInterface {
+public class FixedQueue implements FixedQueueInterface {
 	
 	private Object[] elements;
 	private int size;
 	
 	private static final int SIZE_INITIALIZE = 10;
 	
-	public FilaEstatica() {
+	public FixedQueue() {
 		super();
 		
 		size = 0;

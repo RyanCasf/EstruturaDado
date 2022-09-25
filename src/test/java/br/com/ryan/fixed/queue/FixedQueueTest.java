@@ -1,4 +1,4 @@
-package br.com.ryan.fila.estatica;
+package br.com.ryan.fixed.queue;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -11,13 +11,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
+import br.com.ryan.fixed.queue.FixedQueue;
+
 @TestInstance(Lifecycle.PER_CLASS)
-class FilaEstaticaTeste {
-	private FilaEstatica filaEstatica;
+class FixedQueueTest {
+	private FixedQueue filaEstatica;
 	
 	@BeforeEach
 	void instance() {
-		 filaEstatica = new FilaEstatica();
+		 filaEstatica = new FixedQueue();
 	}
 	
 	@Test
