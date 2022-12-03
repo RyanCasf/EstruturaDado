@@ -15,3 +15,10 @@ Geralmente é baseado sobre os tipos primitivos Wrappers das linguagens de progr
 	<li>Homogêneas ou Heterogêneas;</li>
 	<li>Estáticas (têm tamanho/capacidade de memória fixa) ou dinâmicas (podem expandir).</li>
 </ul>
+
+<pre>
+Realizador:
+° RYAN CASTRO FERREIRA.
+<b style="color: blue;">LinkdIn </b>- <a href="https://www.linkedin.com/in/ryan-castro-ferreira">https://www.linkedin.com/in/ryan-castro-ferreira/</a>
+<b style="color: red;">Email </b>- ryancasf@gmail.com
+</pre>
