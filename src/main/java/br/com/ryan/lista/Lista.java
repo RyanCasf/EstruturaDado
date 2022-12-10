@@ -1,16 +1,13 @@
-package br.com.ryan.fixed.queue;
+package br.com.ryan.lista;
 
-/** 
- * @author Ryan Castro Ferreira
- */
-public class FixedQueue implements FixedQueueInterface {
+public class Lista implements ListaInterface {
 	
 	private Object[] elements;
 	private int size;
 	
 	private static final int SIZE_INITIALIZE = 10;
 	
-	public FixedQueue() {
+	public Lista() {
 		super();
 		
 		size = 0;

@@ -1,12 +1,9 @@
-package br.com.ryan.dynamic.queue;
+package br.com.ryan.fila;
 
-/** 
- * @author Ryan Castro Ferreira
- */
-public class DynamicQueue<E> implements DynamicQueueInterface<E> {
+public class Fila<E> implements FilaInterface<E> {
 	
-	private Node<E> end = null;
-	private Node<E> start = null;
+	private No<E> end = null;
+	private No<E> start = null;
 	
 	@Override
 	public boolean isEmpty() {
@@ -15,19 +12,21 @@ public class DynamicQueue<E> implements DynamicQueueInterface<E> {
 	
 	@Override
 	public void insert(E e) {
-		Node<E> element = new Node<E>();
+		No<E> element = new No<E>();
 		element.data = e;
 		
 		if (start == null) {
 			end = element;
 			start = element;
 			element.next = null;
-		} else {
+		} 
+		else {
 			if (start == end) {
 				end = element;
 				start.next = end;
 				end.next = null;
-			} else {
+			} 
+			else {
 				end.next = element;
 				element.next = null;
 				end = element;
@@ -41,11 +40,12 @@ public class DynamicQueue<E> implements DynamicQueueInterface<E> {
 			throw new IndexOutOfBoundsException("Position do not exist");
 		}
 		
-		Node<E> temporary = start;
+		No<E> temporary = start;
 		if (start != null && start == end) {
 			start = null;
 			end = null;
-		} else {
+		} 
+		else {
 			start = start.next;
 		}
 		
@@ -59,7 +59,7 @@ public class DynamicQueue<E> implements DynamicQueueInterface<E> {
 		}
 		
 		int count = 0;
-		Node<E> temporary = start;
+		No<E> temporary = start;
 		while (temporary != null) {
 			count++;
 			temporary = temporary.next;

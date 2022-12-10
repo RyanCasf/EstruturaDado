@@ -1,6 +1,6 @@
-package br.com.ryan.fixed.queue;
+package br.com.ryan.lista;
 
-public interface FixedQueueInterface {
+public interface ListaInterface {
 	
 	void add(Object value);
 	void add(int size, Object value);

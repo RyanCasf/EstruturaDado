@@ -1,4 +1,4 @@
-package br.com.ryan.dynamic.queue;
+package br.com.ryan.fila;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -16,14 +16,17 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
+import br.com.ryan.fila.Fila;
+import br.com.ryan.fila.FilaInterface;
+
 @TestInstance(Lifecycle.PER_CLASS)
-class DynamicQueueTest {
+class FilaTeste {
 	
-	private DynamicQueueInterface<Object> dynamicQueue;
+	private FilaInterface<Object> dynamicQueue;
 	
 	@BeforeEach
 	void newInstance() {
-		dynamicQueue = new DynamicQueue<Object>();
+		dynamicQueue = new Fila<Object>();
 	}
 	
 	@Test

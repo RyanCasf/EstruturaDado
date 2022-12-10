@@ -1,4 +1,4 @@
-package br.com.ryan.fixed.queue;
+package br.com.ryan.lista;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -11,13 +11,15 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
+import br.com.ryan.lista.Lista;
+
 @TestInstance(Lifecycle.PER_CLASS)
-class FixedQueueTest {
-	private FixedQueue fixedQueue;
+class ListaTeste {
+	private Lista fixedQueue;
 	
 	@BeforeEach
 	void instance() {
-		 fixedQueue = new FixedQueue();
+		 fixedQueue = new Lista();
 	}
 	
 	@Test
