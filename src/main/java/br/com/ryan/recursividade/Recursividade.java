@@ -2,8 +2,12 @@ package br.com.ryan.recursividade;
 
 public class Recursividade {
 	
-	public double fatorialSobre(long valor) {
-		if (valor <= 0) {
+	public double fatorialSobre(long valor) throws IllegalArgumentException {
+		if (valor < 0) {
+			throw new IllegalArgumentException("Não existe fatorial de número negativo.");
+		}
+		
+		if (valor == 0) {
 			return 0;
 		}
 		
@@ -39,20 +43,35 @@ public class Recursividade {
 		return fibonacci(parametro - 1) + fibonacci(parametro - 2);
 	}
 	
-	public int somarPositivo(int valor) {
-		if (valor < 1) {
+	public int somar(int valor) {
+		if (valor == 0) {
 			return 0;
 		}
 		
-		return ((valor) + somarPositivo(valor - 1));
+		return valor > 0 ? somarPositivo(valor) : somarNegativo(valor);
 	}
 	
-	public double somarSobrePositivo(int valor) {
-		if (valor <= 0) {
+	private int somarPositivo(int valor) {
+		return valor > 0 ? (valor) + somarPositivo(--valor) : 0;
+	}
+	
+	private int somarNegativo(int valor) {
+		return valor < 0 ? (valor) + somarNegativo(++valor) : 0;
+	}
+	
+	public double somarSobre(int valor) {
+		if (valor == 0) {
 			return 0;
 		}
 		
-		double resultado = (double) 1 / valor;
-		return resultado + somarSobrePositivo(--valor);
+		return valor > 0 ? somarSobrePositivo(valor) : somarSobreNegativo(valor);
+	}
+
+	private double somarSobrePositivo(int valor) {
+		return valor > 0 ? ((double) 1 / valor) + somarSobrePositivo(--valor) : 0;
+	}
+
+	private double somarSobreNegativo(int valor) {
+		return valor < 0 ? ((double) 1 / valor) + somarSobreNegativo(++valor) : 0;
 	} 
 }

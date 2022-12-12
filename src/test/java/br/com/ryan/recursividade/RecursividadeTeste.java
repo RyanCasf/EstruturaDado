@@ -29,7 +29,7 @@ class RecursividadeTeste {
 	@Test
 	@DisplayName("Fatorial sobre 1 passando negativo.")
 	void fatorialSobreNegativo() {
-		assertEquals(0.0, recursividade.fatorialSobre(-1));
+		assertThrows(IllegalArgumentException.class, () -> recursividade.fatorialSobre(-1));
 	}
 	
 	@Test
@@ -78,36 +78,38 @@ class RecursividadeTeste {
 	@Test
 	@DisplayName("Somar positivo passando zero.")
 	void somarPositivoComZero() {
-		assertEquals(0, recursividade.somarPositivo(0));
+		assertEquals(0, recursividade.somar(0));
 	}
 	
 	@Test
 	@DisplayName("Somar positivo passando negativo.")
 	void somarPositivoComNegativo() {
-		assertEquals(0, recursividade.somarPositivo(-1));
+		assertEquals(-1, recursividade.somar(-1));
+		assertEquals(-55, recursividade.somar(-10));
 	}
 	
 	@Test
 	@DisplayName("Somar positivo passando positivo.")
 	void somarPositivoComPositivo() {
-		assertEquals(55, recursividade.somarPositivo(10));
+		assertEquals(1, recursividade.somar(1));
+		assertEquals(55, recursividade.somar(10));
 	}
 	
 	@Test
 	@DisplayName("Somar sobre zerado.")
 	void somarSobreZerado() {
-		assertEquals(0, recursividade.somarSobrePositivo(0));
+		assertEquals(0, recursividade.somarSobre(0));
 	}
 	
 	@Test
 	@DisplayName("Somar sobre negativo.")
 	void somarSobreNegativo() {
-		assertEquals(0, recursividade.somarSobrePositivo(-1));
+		assertEquals(-1, recursividade.somarSobre(-1));
 	}
 	
 	@Test
 	@DisplayName("Somar sobre positivo.")
 	void somarSobrePositivo() {
-		assertEquals(1, recursividade.somarSobrePositivo(1));
+		assertEquals(1, recursividade.somarSobre(1));
 	}
 }
