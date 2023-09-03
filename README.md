@@ -16,6 +16,11 @@ Geralmente é baseado sobre os tipos primitivos Wrappers das linguagens de progr
 	<li>Estáticas (têm tamanho/capacidade de memória fixa) ou dinâmicas (podem expandir).</li>
 </ul>
 
+<hr>
+
+## Mais detalhes
+Para ver mais acesse o [sumário](DIRECTORY.md).
+
 <pre>
 Realizador:
 ° RYAN CASTRO FERREIRA.
