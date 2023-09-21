@@ -10,13 +10,13 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
-class FilaTeste {
+class FilaTest {
 	
 	private FilaInterface<Object> dynamicQueue;
 	
 	@BeforeEach
 	void newInstance() {
-		dynamicQueue = new Fila<Object>();
+		dynamicQueue = new Fila<>();
 	}
 	
 	@Test
@@ -54,8 +54,8 @@ class FilaTeste {
 	}
 	
 	@Test
-	@DisplayName("Size with random add itens")
-	void sizeRandomItens() {
+	@DisplayName("Size with random add items")
+	void sizeRandomItems() {
 		Random random = new Random();
 		
 		final int SIZE_LOOP = (Math.abs(random.nextInt(10)) + 1) * 3;
@@ -67,8 +67,8 @@ class FilaTeste {
 	}
 	
 	@Test
-	@DisplayName("Size 0 with random itens add - remove")
-	void sizeZeroRandomAddAndRemoveItens() {
+	@DisplayName("Size 0 with random items add - remove")
+	void sizeZeroRandomAddAndRemoveItems() {
 		Random random = new Random();
 		
 		final int SIZE_LOOP = Math.abs(random.nextInt(10)) + 1;

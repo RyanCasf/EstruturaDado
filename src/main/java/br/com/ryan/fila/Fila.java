@@ -12,7 +12,7 @@ public class Fila<E> implements FilaInterface<E> {
 	
 	@Override
 	public void insert(E e) {
-		No<E> element = new No<E>();
+		No<E> element = new No<>();
 		element.data = e;
 		
 		if (start == null) {

@@ -11,7 +11,7 @@ import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
 @DisplayName("Recursividade")
-class RecursividadeTeste {
+class RecursividadeTest {
 	
 	private Recursividade recursividade;
 	
