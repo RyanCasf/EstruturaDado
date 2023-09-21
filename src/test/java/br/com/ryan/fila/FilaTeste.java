@@ -1,23 +1,13 @@
 package br.com.ryan.fila;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
-import org.junit.jupiter.api.TestInstance.Lifecycle;
+import static org.junit.jupiter.api.Assertions.*;
 
-import br.com.ryan.fila.Fila;
-import br.com.ryan.fila.FilaInterface;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class FilaTeste {
@@ -31,14 +21,12 @@ class FilaTeste {
 	
 	@Test
 	@DisplayName("Empty true in new queue")
-	@Order(value = 0)
 	void emptyNew() {
 		assertTrue(dynamicQueue.isEmpty());
 	}
 	
 	@Test
 	@DisplayName("Empty false in add item queue")
-	@Order(value = 1)
 	void emptyWithAddItem() {
 		dynamicQueue.insert("A");
 		assertFalse(dynamicQueue.isEmpty());
@@ -46,7 +34,6 @@ class FilaTeste {
 	
 	@Test
 	@DisplayName("Empty true with add and remove order method")
-	@Order(value = 2)
 	void emptyReset() {
 		dynamicQueue.insert("A");
 		dynamicQueue.remove();
@@ -56,21 +43,18 @@ class FilaTeste {
 	
 	@Test
 	@DisplayName("Remove index without element in throw exception")
-	@Order(value = 3)
 	void removeIndexOut() {
 		assertThrows(IndexOutOfBoundsException.class, () -> dynamicQueue.remove());
 	}
 	
 	@Test
 	@DisplayName("Queue size 0")
-	@Order(value = 4)
 	void sizeZero() {
 		assertEquals(0, dynamicQueue.size());
 	}
 	
 	@Test
 	@DisplayName("Size with random add itens")
-	@Order(value = 5)
 	void sizeRandomItens() {
 		Random random = new Random();
 		
@@ -84,7 +68,6 @@ class FilaTeste {
 	
 	@Test
 	@DisplayName("Size 0 with random itens add - remove")
-	@Order(value = 6)
 	void sizeZeroRandomAddAndRemoveItens() {
 		Random random = new Random();
 		
@@ -102,7 +85,6 @@ class FilaTeste {
 	
 	@Test
 	@DisplayName("Remove get")
-	@Order(value = 7)
 	void removeGetValue() {
 		final Object PARAM = "A";
 		dynamicQueue.insert(PARAM);
@@ -113,7 +95,6 @@ class FilaTeste {
 	
 	@Test
 	@DisplayName("Table test")
-	@Order(value = 8)
 	void tableTest() {
 		final List<Integer> LIST = Arrays.asList(36,28,146,14,-65,117,-40,24,138,116);
 		

@@ -1,20 +1,12 @@
 package br.com.ryan.lista;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThrows;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
-
-import br.com.ryan.lista.Lista;
 
 @TestInstance(Lifecycle.PER_CLASS)
 class ListaTeste {
+
 	private Lista fixedQueue;
 	
 	@BeforeEach
@@ -25,7 +17,7 @@ class ListaTeste {
 	@Test
 	@DisplayName("New instance to array")
 	void inicialize() {
-		assertEquals(0, fixedQueue.size());
+		Assertions.assertEquals(0, fixedQueue.size());
 		
 		for (byte i=0; i<10; i++) {
 			assertEquals(null, fixedQueue.get(i));
