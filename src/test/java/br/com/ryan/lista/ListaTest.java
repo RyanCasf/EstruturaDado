@@ -16,11 +16,12 @@ class ListaTest {
 	
 	@Test
 	@DisplayName("New instance to array")
-	void inicialize() {
+	void init() {
 		Assertions.assertEquals(0, fixedQueue.size());
-		
-		for (byte i=0; i<10; i++) {
-			assertEquals(null, fixedQueue.get(i));
+
+		final int COUNT = 10;
+		for (byte i=0; i<COUNT; i++) {
+			assertNull(fixedQueue.get(i));
 		}
 		
 		assertNull(fixedQueue.print());
@@ -30,16 +31,17 @@ class ListaTest {
 	@DisplayName("Add one value to array")
 	void add() {
 		fixedQueue.add("0");
+
 		assertEquals(1, fixedQueue.size());
 		assertEquals("0", fixedQueue.get(0));
-		
 		assertEquals("[0]", fixedQueue.print());
 	}
 	
 	@Test
 	@DisplayName("Add max (10) values to array, duplicate vector")
 	void addMax() {
-		for (byte i=1; i<11; i++) {
+		final int COUNT = 11;
+		for (byte i=1; i<COUNT; i++) {
 			fixedQueue.add(Integer.toString(i));
 		}
 		
@@ -61,80 +63,80 @@ class ListaTest {
 	
 	@Test
 	@DisplayName("Get element in get index without elements")
-	void getIndexPositive() {
+	void getIndexWithoutElements() {
 		assertNull(fixedQueue.get(1));
 	}
 	
 	@Test
-	@DisplayName("Contains element index negative")
-	void containsIndexNegative() {
+	@DisplayName("Contains element index negative false")
+	void containsIndexNegativeFalse() {
 		assertFalse(fixedQueue.contains(-1));
 	}
 	
 	@Test
-	@DisplayName("Contains element index zero")
-	void containsIndexZero() {
+	@DisplayName("Contains element index zero false")
+	void containsIndexZeroFalse() {
 		assertFalse(fixedQueue.contains(0));
 	}
 	
 	@Test
-	@DisplayName("Contains element index")
-	void containsIndexPositive() {
+	@DisplayName("Contains element index false")
+	void containsIndexPositiveFalse() {
 		assertFalse(fixedQueue.contains(1));
 	}
 	
 	@Test
-	@DisplayName("Contains element with value null")
-	void containsWithNull() {
+	@DisplayName("Contains element with value null false")
+	void containsWithNullFalse() {
 		assertFalse(fixedQueue.contains(null));
 	}
 	
 	@Test
-	@DisplayName("Contains element in new instance")
-	void containsWithNewInstance() {
+	@DisplayName("Contains element in new instance false")
+	void containsWithNewInstanceFalse() {
 		assertFalse(fixedQueue.contains(new Object()));
 	}
 	
 	@Test
-	@DisplayName("Contains element in new instance param")
-	void containsWithInstance() {
+	@DisplayName("Contains element in new instance paramFalse")
+	void containsWithInstanceFalse() {
 		Object param = new Object();
 		assertFalse(fixedQueue.contains(param));
 	}
 	
 	@Test
-	@DisplayName("Remove element in index negative")
-	void removeIndexNegative() {
+	@DisplayName("Remove element in index negative false")
+	void removeIndexNegativeFalse() {
 		assertFalse(fixedQueue.remove(-1));
 	}
 	
 	@Test
-	@DisplayName("Remove element in index zero")
-	void removeIndexZero() {
+	@DisplayName("Remove element in index zero false")
+	void removeIndexZeroFalse() {
 		assertFalse(fixedQueue.remove(0));
 	}
 	
 	@Test
-	@DisplayName("Remove element in index")
-	void removeIndexPositive() {
+	@DisplayName("Remove element in index false")
+	void removeIndexPositiveFalse() {
 		assertFalse(fixedQueue.remove(1));
 	}
 	
 	@Test
-	@DisplayName("Remove element in object null")
-	void removeObjWithNull() {
+	@DisplayName("Remove element in object null false")
+	void removeObjWithNullFalse() {
 		assertFalse(fixedQueue.remove(null));
 	}
 	
 	@Test
-	@DisplayName("Remove element in object new instance")
-	void removeObjWithNewInstance() {
+	@DisplayName("Remove element in object new instance false")
+	void removeObjWithNewInstanceFalse() {
 		assertFalse(fixedQueue.remove(new Object()));
 	}
 	
 	@Test
-	@DisplayName("Remove element in object null param")
-	void removeObjWithInstance() {
+	@DisplayName("Remove element in object null param false")
+	void removeObjWithInstanceFalse() {
 		Object param = new Object();
 		assertFalse(fixedQueue.remove(param));
 	}

@@ -55,6 +55,12 @@ class RecursividadeTest {
 	void fatorialPositivo() {
 		assertEquals(1, recursividade.fatorial(1));
 	}
+
+	@Test
+	@DisplayName("Fatorial.")
+	void fatorial() {
+		assertEquals(24, recursividade.fatorial(4));
+	}
 	
 	@Test
 	@DisplayName("Fibonacci zerado.")
@@ -73,6 +79,12 @@ class RecursividadeTest {
 	void fibonacciPositivo() {
 		assertEquals(1, recursividade.fibonacci(1));
 		assertEquals(1, recursividade.fibonacci(2));
+	}
+
+	@Test
+	@DisplayName("Fibonacci.")
+	void fibonacci() {
+		assertEquals(3, recursividade.fibonacci(4));
 	}
 	
 	@Test
