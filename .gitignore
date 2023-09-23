@@ -1,0 +1,14 @@
+/target/
+**/target/**
+.settings/
+nbactions.xml
+.DS_STORE
+.idea/
+*.iml
+**/pom.xml.versionsBackup
+*~
+.classpath
+.
+.project
+.vscode/
+.checkstyle
