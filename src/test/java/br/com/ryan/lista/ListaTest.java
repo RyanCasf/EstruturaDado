@@ -1,7 +1,14 @@
 package br.com.ryan.lista;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
@@ -17,14 +24,13 @@ class ListaTest {
 	@Test
 	@DisplayName("New instance to array")
 	void init() {
-		Assertions.assertEquals(0, fixedQueue.size());
-
+		assertEquals(0, fixedQueue.size());
+		
 		final int COUNT = 10;
 		for (byte i=0; i<COUNT; i++) {
-			assertNull(fixedQueue.get(i));
+			fixedQueue.add(i);
+			assertEquals(i, fixedQueue.get(i));
 		}
-		
-		assertNull(fixedQueue.print());
 	}
 	
 	@Test
@@ -34,7 +40,6 @@ class ListaTest {
 
 		assertEquals(1, fixedQueue.size());
 		assertEquals("0", fixedQueue.get(0));
-		assertEquals("[0]", fixedQueue.print());
 	}
 	
 	@Test
@@ -46,25 +51,47 @@ class ListaTest {
 		}
 		
 		assertThrows(ArrayIndexOutOfBoundsException.class, () -> fixedQueue.add("11"));
-		assertEquals("[1,2,3,4,5,6,7,8,9,10]", fixedQueue.print());
+	}
+	
+	@Test
+	@DisplayName("Add with negative index")
+	void addWithNegativeIndex() {
+		assertThrows(IndexOutOfBoundsException.class, () -> fixedQueue.add(-1, null));
+	}
+	
+	@Test
+	@DisplayName("Add with index zero")
+	void addWithIndexZero() {
+		assertThrows(IndexOutOfBoundsException.class, () -> fixedQueue.add(0, null));
+	}
+	
+	@Test
+	@DisplayName("Add with index")
+	void addWithIndex() {
+		fixedQueue.add("0");
+		fixedQueue.add(0, "TESTE");
+		
+		assertEquals("TESTE", fixedQueue.get(0));
 	}
 	
 	@Test
 	@DisplayName("Get element in get index negative")
 	void getIndexNegative() {
+		fixedQueue.add(null);
 		assertThrows(IndexOutOfBoundsException.class, () -> fixedQueue.get(-1));
 	}
 	
 	@Test
-	@DisplayName("Get element in get index zero")
-	void getIndexZero() {
-		assertNull(fixedQueue.get(0));
+	@DisplayName("Get element in get index zero without elements")
+	void getIndexZeroWithoutElements() {
+		assertThrows(IndexOutOfBoundsException.class, () -> fixedQueue.get(0));
 	}
 	
 	@Test
 	@DisplayName("Get element in get index without elements")
 	void getIndexWithoutElements() {
-		assertNull(fixedQueue.get(1));
+		fixedQueue.add(null);
+		assertThrows(IndexOutOfBoundsException.class, () -> fixedQueue.get(1));
 	}
 	
 	@Test
@@ -98,10 +125,30 @@ class ListaTest {
 	}
 	
 	@Test
-	@DisplayName("Contains element in new instance paramFalse")
+	@DisplayName("Contains element in new instance param false")
 	void containsWithInstanceFalse() {
 		Object param = new Object();
 		assertFalse(fixedQueue.contains(param));
+	}
+	
+	@Test
+	@DisplayName("Contains for nullble")
+	void containsForNullble() {
+		fixedQueue.add("0");
+		fixedQueue.add(null);
+		fixedQueue.add("2");
+		
+		assertTrue(fixedQueue.contains(null));
+	}
+	
+	@Test
+	@DisplayName("Contains")
+	void contains() {
+		fixedQueue.add(null);
+		fixedQueue.add("1");
+		fixedQueue.add("2");
+		
+		assertTrue(fixedQueue.contains("2"));
 	}
 	
 	@Test
