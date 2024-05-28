@@ -1,21 +1,27 @@
 package br.com.ryan.fila;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
+@DisplayName("Fila")
 class FilaTest {
 	
 	private FilaInterface<Object> dynamicQueue;
 	
 	@BeforeEach
-	void newInstance() {
+	void setUp() {
 		dynamicQueue = new Fila<>();
 	}
 	
@@ -54,11 +60,10 @@ class FilaTest {
 	}
 	
 	@Test
-	@DisplayName("Size with random add items")
-	void sizeRandomItems() {
-		Random random = new Random();
+	@DisplayName("Size add items")
+	void sizeItems() {
+		final int SIZE_LOOP = 12;
 		
-		final int SIZE_LOOP = (Math.abs(random.nextInt(10)) + 1) * 3;
 		for (int i=0; i<SIZE_LOOP; i++) {
 			dynamicQueue.insert(i);
 		}
@@ -67,11 +72,10 @@ class FilaTest {
 	}
 	
 	@Test
-	@DisplayName("Size 0 with random items add - remove")
-	void sizeZeroRandomAddAndRemoveItems() {
-		Random random = new Random();
+	@DisplayName("Size 0 items add - remove")
+	void sizeZeroAddAndRemoveItems() {
+		final int SIZE_LOOP = 20;
 		
-		final int SIZE_LOOP = Math.abs(random.nextInt(10)) + 1;
 		for (int i=0; i<SIZE_LOOP; i++) {
 			dynamicQueue.insert(i);
 		}
@@ -86,11 +90,10 @@ class FilaTest {
 	@Test
 	@DisplayName("Remove get")
 	void removeGetValue() {
-		final Object PARAM = "A";
-		dynamicQueue.insert(PARAM);
-		Object RETURN = dynamicQueue.remove();
+		Object value = "A";
+		dynamicQueue.insert(value);
 		
-		assertEquals(RETURN, PARAM);
+		assertEquals(value, dynamicQueue.remove());
 	}
 	
 	@Test
