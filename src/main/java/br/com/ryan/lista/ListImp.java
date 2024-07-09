@@ -1,13 +1,13 @@
 package br.com.ryan.lista;
 
-public class Lista implements ListaInterface {
+public class ListImp implements List {
 	
-	private Object[] elements;
+	private final Object[] elements;
 	private int size;
 	
 	private static final int SIZE_INITIALIZE = 10;
 	
-	public Lista() {
+	public ListImp() {
 		size = 0;
 		elements = new Object[SIZE_INITIALIZE];
 	}

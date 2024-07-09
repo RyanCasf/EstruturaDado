@@ -12,13 +12,13 @@ import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
 @TestInstance(Lifecycle.PER_CLASS)
-class ListaTest {
+class ListImpTest {
 
-	private Lista fixedQueue;
+	private ListImp fixedQueue;
 	
 	@BeforeEach
 	void instance() {
-		 fixedQueue = new Lista();
+		 fixedQueue = new ListImp();
 	}
 	
 	@Test
@@ -68,10 +68,12 @@ class ListaTest {
 	@Test
 	@DisplayName("Add with index")
 	void addWithIndex() {
+		final String expected = "test";
+
 		fixedQueue.add("0");
-		fixedQueue.add(0, "TESTE");
+		fixedQueue.add(0, expected);
 		
-		assertEquals("TESTE", fixedQueue.get(0));
+		assertEquals(expected, fixedQueue.get(0));
 	}
 	
 	@Test
@@ -132,8 +134,8 @@ class ListaTest {
 	}
 	
 	@Test
-	@DisplayName("Contains for nullble")
-	void containsForNullble() {
+	@DisplayName("Contains for nullable")
+	void containsForNullable() {
 		fixedQueue.add("0");
 		fixedQueue.add(null);
 		fixedQueue.add("2");

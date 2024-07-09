@@ -1,6 +1,6 @@
 package br.com.ryan.lista;
 
-interface ListaInterface {
+interface List {
 	
 	void add(Object value);
 	void add(int index, Object value);
